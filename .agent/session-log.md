@@ -23,3 +23,10 @@ Do not delete or rewrite prior entries; if a decision is superseded, add a new e
   per-tool format) so it works across Antigravity and any other agent tooling.
 - Open questions / follow-ups: Need per-module AGENTS.md for src/backend and src/java.
 - Verification: N/A (documentation only)
+
+## 2026-08-09 — Onboarding pass (arthur, Antigravity)
+- Task: Read instructions, explore repo structure, review profiling docs, and establish a benchmark baseline.
+- Files touched: gradle/wrapper/gradle-wrapper.properties (attempted update)
+- Decisions made: Documented that `wrapper.hpp` resides in `src/backend/headers/` (contrary to AGENTS.md claiming it is in `src/backend/cpp/`).
+- Open questions / follow-ups: The machine runs Java 26 (class version 70) which breaks Gradle builds (even Gradle 8.10). A compatible JDK (e.g., 21 or 17) needs to be used to build and benchmark.
+- Verification: Ran `./gradlew jar` and `./gradlew benchBackend` (failed due to Java version 26 incompatibility).
