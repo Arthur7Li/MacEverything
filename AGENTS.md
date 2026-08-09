@@ -16,7 +16,7 @@ Architecture (do not restructure without an explicit human decision):
   dispatched via `PolyVaryTask`, `CycleVaryTask`, `VaryLTask` (implement `Callable`, report
   through `Progress`/`ProgressWithStatus`).
 - `src/java/billiards/wrapper/Wrapper.java` — JNI boundary to the native library. Any signature
-  change here requires a matching change in `src/backend/cpp/wrapper.cpp` and `wrapper.hpp`.
+  change here requires a matching change in `src/backend/cpp/wrapper.cpp` and `src/backend/headers/wrapper.hpp`.
 - `src/backend/cpp/` — core math: `code_sequence.cpp`, `bounding_inequalities.cpp`,
   `unfolding.cpp`, `triangle_billiard.cpp`, `vary3.cpp`/`vary4.cpp`. This is the actual research
   algorithm; treat changes here as math-correctness-critical, not routine refactors.

@@ -30,3 +30,10 @@ Do not delete or rewrite prior entries; if a decision is superseded, add a new e
 - Decisions made: Documented that `wrapper.hpp` resides in `src/backend/headers/` (contrary to AGENTS.md claiming it is in `src/backend/cpp/`).
 - Open questions / follow-ups: The machine runs Java 26 (class version 70) which breaks Gradle builds (even Gradle 8.10). A compatible JDK (e.g., 21 or 17) needs to be used to build and benchmark.
 - Verification: Ran `./gradlew jar` and `./gradlew benchBackend` (failed due to Java version 26 incompatibility).
+
+## 2026-08-09 — Resolve Java incompatibility and verify build (arthur, Antigravity)
+- Task: Fix the Java environment so the project builds, get the baseline benchmark, and verify the app runs.
+- Files touched: `AGENTS.md` (corrected `wrapper.hpp` path), `gradle.properties` (set Java 17 path).
+- Decisions made: Reverted to using Java 17 (via Homebrew) to ensure JNI compatibility and avoid breaking the C++ integration, instead of trying to upgrade all dependencies to support Java 26.
+- Open questions / follow-ups: none
+- Verification: `./gradlew benchBackend` returned valid baseline metrics. User verified `./gradlew run` successfully built and launched the UI without native link errors.
