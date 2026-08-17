@@ -36,5 +36,6 @@ metal-cpp/
 garbage.txt
 vary3.txt
 middleVary3.txt
-tmp/VaryLBounds.txt
-tmp/VaryPoints4.txt
+cover/
+small_cover/
+tmp/

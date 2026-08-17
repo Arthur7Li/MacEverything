@@ -37,3 +37,10 @@ Do not delete or rewrite prior entries; if a decision is superseded, add a new e
 - Decisions made: Reverted to using Java 17 (via Homebrew) to ensure JNI compatibility and avoid breaking the C++ integration, instead of trying to upgrade all dependencies to support Java 26.
 - Open questions / follow-ups: none
 - Verification: `./gradlew benchBackend` returned valid baseline metrics. User verified `./gradlew run` successfully built and launched the UI without native link errors.
+
+## 2026-08-17 — Ignore runtime generated files (arthur, Antigravity)
+- Task: Check local changes in cover/ and tmp/, ignore user/app-generated data so it is not pushed to remote.
+- Files touched: `.gitignore`, `cover/*`, `tmp/*`, `.agent/session-log.md`
+- Decisions made: Added `cover/`, `small_cover/`, and `tmp/` to `.gitignore` and untracked them from git (`git rm --cached`) so runtime session dumps and calculations don't dirty working tree.
+- Open questions / follow-ups: none
+- Verification: `./gradlew jar` and `./gradlew benchBackend` both completed successfully with zero errors.
